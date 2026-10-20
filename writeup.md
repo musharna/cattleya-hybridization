@@ -55,13 +55,13 @@ Registered _Cattleya_ hybrids date from the mid-19th century, and after cleaning
 
 ![Figure 1](figures/fig1_hybridization_trends_by_type.png)
 
-**Figure 1.** Hybridization trends in the _Cattleya_ genus since the 1850's. The years noted for their significance as Corsage orchids are colored in purple and hybrids are discerned by their parental makeup.
+**Figure 1.** Hybridization trends in the _Cattleya_ genus since the 1850s. Top: hybrids registered per year by parental makeup (5-year moving average); the corsage era (1920–1950) is shaded. Bottom: each type's share of the registrations in each 5-year period with at least 20.
 
 Another proxy used to examine hybrid complexity was the distribution of the number of ancestors each hybrid had on a yearly basis (Figure 2). Similarly to Figure 1, we see very few total ancestors in early hybrids and as time passes, we see a greater average number of ancestors as well as a much wider distribution of the number of ancestors. This trend was increasing around the 1950's but appears to have plateaued or declined in recent years.
 
 ![Figure 2](figures/fig2_ancestors_by_year.png)
 
-**Figure 2.** Distribution of the number of ancestors per registered hybrid, by year of registration (boxplots), with the yearly mean overlaid in red.
+**Figure 2.** Number of ancestors per registered hybrid, in 5-year bins of registration year (bins with at least 20 hybrids): median (solid line), mean (dashed), middle 50% (dark band) and middle 80% (light band).
 
 ### Phylogenetic Signal
 
@@ -69,7 +69,7 @@ Phylogenetic signal was tested using Pagel's Lambda and Blomberg's K to determin
 
 ![Figure 3](figures/fig3_hybrid_counts_on_species_tree.png)
 
-**Figure 3.** _Cattleya_ species tree with branches coloured by log(hybrid count + 1); raw descendant-hybrid counts are listed at right of each tip. High-count species cluster in the _labiata_-group region of the tree rather than being scattered across it — the visual counterpart of the significant Pagel's lambda / Moran's I / Abouheif's Cmean results in Table 1.
+**Figure 3.** _Cattleya_ species on the subgeneric tree (left) with the number of registered hybrids descended from each species on a log scale (right); each subgeneric rank is a shaded band, with the _labiata_ group (rank _Cattleya_) in blue. High-count species cluster in the _labiata_-group region of the tree rather than being scattered across it — the visual counterpart of the significant Pagel's lambda / Moran's I / Abouheif's Cmean results in Table 1.
 
 ## Discussion
 
@@ -104,7 +104,7 @@ Despite the limitations, there remains great potential to continue this analysis
 
 ![Figure S1](figures/figS1_hybrids_per_year.png)
 
-**Figure S1.** A line plot of the number of hybrids made each year from the 1850's to present.
+**Figure S1.** Number of _Cattleya_ hybrids registered each year from the 1850s to present; the corsage era is shaded.
 
 ![Figure S2](figures/figS2_cumulative_hybrids.png)
 
