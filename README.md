@@ -32,7 +32,7 @@ significant:
 Blomberg's K was not significant on either tree. The species tree is largely polytomous, and K
 depends on branch-length structure that Grafen scaling only approximates.
 
-<p align="center"><img src="figures/fig3_hybrid_counts_on_species_tree.png" width="90%" alt="Hybrid counts painted on the Cattleya species tree"></p>
+<p align="center"><img src="figures/fig3_hybrid_counts_on_species_tree.png" width="90%" alt="Cattleya species tree with hybrid descendant counts per species"></p>
 
 ## Reproducing
 
@@ -40,8 +40,8 @@ Everything runs from the derived tables in `data/`:
 
 ```r
 # from analysis/
-Rscript figures_from_derived.R    # Figures 1, 2, S1, S2   (ggplot2, dplyr)
-Rscript species_tree_signal.R     # Figure 3 and Table 1   (ape, phytools, phylosignal, phylobase, viridis)
+Rscript figures_from_derived.R    # Figures 1, 2, S1, S2   (ggplot2, dplyr, tidyr, patchwork, ragg)
+Rscript species_tree_signal.R     # Figure 3 and Table 1   (ape, phytools, phylosignal, phylobase, ggplot2, patchwork, ragg)
 ```
 
 Output goes to `figures_regenerated/`. The subgeneric row regenerates exactly, apart from

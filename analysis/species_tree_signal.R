@@ -13,8 +13,9 @@
 
 suppressPackageStartupMessages({
   library(ape); library(phytools); library(phylosignal)
-  library(phylobase); library(viridis)
+  library(phylobase); library(ggplot2); library(patchwork)
 })
+source("theme_cattleya.R")
 
 set.seed(1)                       # permutation tests below use 999 replicates
 out_dir <- "../figures_regenerated"
@@ -108,26 +109,80 @@ counts_clean <- counts_clean[tree_clean$tip.label]
 stopifnot(all(tree_clean$tip.label == names(counts_clean)))
 stopifnot(!any(is.na(counts_clean)))
 
-png(file.path(out_dir, "fig3_hybrid_counts_on_species_tree.png"),
-    width = 2200, height = 2600, res = 220)
-log_counts <- setNames(log1p(counts_clean), names(counts_clean))
-cm <- setMap(contMap(tree_clean, log_counts, plot = FALSE), viridis(100, option = "D"))
-# plot.contMap resets par(), so mar must be passed to it and xpd set AFTER --
-# setting either beforehand is silently discarded and the count column then
-# falls outside the clip region and is dropped entirely.
-plot(cm, fsize = 0.6, legend = 0.7, outline = FALSE, mar = c(5, 2, 5, 13))
-par(xpd = NA)
-coords <- get("last_plot.phylo", envir = .PlotPhyloEnv)
-n <- length(tree_clean$tip.label)
-# The count column must clear the WIDEST tip label, not a fixed fraction of
-# tree depth -- tip labels vary in width, so a fixed offset overlaps the long
-# ones (C. alvarenguensis, C. amethystoglossa) while leaving the short ones far away.
-label_w <- max(strwidth(tree_clean$tip.label, cex = 0.6, font = 3))
-text(x = max(coords$xx[1:n]) + label_w + strwidth("00", cex = 0.6),
-     y = coords$yy[1:n],
-     labels = counts_clean[tree_clean$tip.label], cex = 0.6, font = 2, adj = 0)
-title("Hybridization Counts Across Cattleya Species Tree (log scale)", line = 2)
-invisible(dev.off())
+# Tree drawn from ape's layout so it can share the house ggplot style: a
+# rectangular phylogram on the left, descendant counts as log-scale bars on the
+# right, each subgeneric rank shaded as a band across both panels.
+x_node <- node.depth.edgelength(tree_clean)
+y_node <- node.height(tree_clean)
+n <- Ntip(tree_clean)
+ed <- tree_clean$edge
+horiz <- data.frame(x = x_node[ed[, 1]], xend = x_node[ed[, 2]],
+                    y = y_node[ed[, 2]], yend = y_node[ed[, 2]])
+vert <- do.call(rbind, lapply(unique(ed[, 1]), function(p) {
+  ys <- y_node[ed[ed[, 1] == p, 2]]
+  data.frame(x = x_node[p], xend = x_node[p], y = min(ys), yend = max(ys))
+}))
+
+rank_of <- setNames(sp$LastSubgenus, abbrev[sp$SpeciesName])
+tips <- data.frame(label = tree_clean$tip.label, x = x_node[1:n], y = y_node[1:n],
+                   count = as.numeric(counts_clean[tree_clean$tip.label]))
+tips$rank <- rank_of[tips$label]
+tips$text <- sub("_", " ", tips$label)
+
+ranks <- do.call(rbind, lapply(split(tips, tips$rank), function(d) {
+  data.frame(rank = d$rank[1], ymin = min(d$y) - 0.5, ymax = max(d$y) + 0.5,
+             ly = mean(d$y))
+}))
+ranks <- ranks[order(ranks$ymin), ]
+ranks$fill <- ifelse(ranks$rank == "Cattleya", seq_blue[["light"]],
+                     ifelse(seq_len(nrow(ranks)) %% 2 == 0, ink[["band"]], NA))
+
+y_lim <- c(0.5, n + 0.5)
+depth <- max(x_node)
+bands <- function() geom_rect(data = subset(ranks, !is.na(fill)),
+                              aes(xmin = -Inf, xmax = Inf, ymin = ymin, ymax = ymax,
+                                  fill = I(fill)), inherit.aes = FALSE)
+
+p_tree <- ggplot() +
+  bands() +
+  geom_segment(data = rbind(horiz, vert), aes(x, y, xend = xend, yend = yend),
+               colour = ink[["secondary"]], linewidth = 0.35, lineend = "square") +
+  geom_text(data = tips, aes(depth + depth * 0.02, y, label = text),
+            hjust = 0, size = 2.5, fontface = "italic", colour = ink[["primary"]]) +
+  geom_text(data = ranks, aes(depth * 1.5, ly, label = rank), hjust = 0, size = 2.7,
+            colour = ink[["secondary"]], fontface = "bold") +
+  scale_x_continuous(limits = c(0, depth * 1.9), expand = expansion(0)) +
+  scale_y_continuous(limits = y_lim, expand = expansion(0)) +
+  labs(x = NULL, y = NULL) +
+  theme_cattleya() +
+  theme(axis.text = element_blank(), panel.grid.major = element_blank(),
+        axis.ticks.x = element_blank(), plot.margin = margin(0, 0, 0, 0))
+
+top <- head(tips[order(-tips$count), ], 6)
+p_bars <- ggplot(tips) +
+  bands() +
+  geom_segment(aes(x = 0, xend = log10(count), y = y, yend = y),
+               colour = seq_blue[["dark"]], linewidth = 1.6, lineend = "butt") +
+  geom_point(aes(log10(count), y), colour = seq_blue[["dark"]], size = 1.1) +
+  geom_text(data = top, aes(log10(count), y, label = scales::comma(count)),
+            hjust = -0.2, size = 2.5, colour = ink[["secondary"]]) +
+  # log10 applied by hand so the shaded bands can run from -Inf
+  scale_x_continuous(breaks = 0:4, labels = scales::comma(10^(0:4)),
+                     expand = expansion(mult = c(0.02, 0.2))) +
+  scale_y_continuous(limits = y_lim, expand = expansion(0)) +
+  labs(x = "Descendant hybrids (log scale)", y = NULL) +
+  theme_cattleya() +
+  theme(axis.text.y = element_blank(), panel.grid.major.y = element_blank(),
+        panel.grid.major.x = element_line(colour = ink[["grid"]], linewidth = 0.35),
+        plot.margin = margin(0, 4, 0, 6))
+
+fig3 <- (p_tree | p_bars) + plot_layout(widths = c(1.25, 1)) +
+  plot_annotation(
+    title = "Heavily used parents cluster in the labiata group",
+    subtitle = "Cattleya species on the subgeneric tree; the labiata group (rank Cattleya) is shaded blue",
+    theme = theme_cattleya())
+save_fig(fig3, file.path(out_dir, "fig3_hybrid_counts_on_species_tree.png"),
+         width = 8.5, height = 12)
 
 cat(sprintf("\nwrote %s/fig3_hybrid_counts_on_species_tree.png\n", out_dir))
 
