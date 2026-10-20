@@ -12,9 +12,9 @@ clustered on the _Cattleya_ phylogeny.
 ## Results
 
 Hybridization and complexity both rose and then partly reversed. Early crosses were mostly primary
-(species × species). By the mid-20th century, crosses of hybrid with hybrid dominated, peaking
-during the _Cattleya_ corsage era and falling as corsages went out of fashion. The three classes are
-closer to balanced today. Mean ancestors per hybrid rose from about 2 in the 1850s to about 22 by
+(species × species). Crosses of hybrid with hybrid rose through the _Cattleya_ corsage era,
+peaked around 1960, then fell steeply. The three classes are closer to balanced today, though primary
+crosses are still the fewest. Mean ancestors per hybrid rose from about 2 in the 1850s to about 22 by
 the 1970s, and has stayed between about 21 and 24 since.
 
 <p align="center"><img src="figures/fig1_hybridization_trends_by_type.png" width="85%" alt="Hybridization trends over time by hybrid type"></p>
