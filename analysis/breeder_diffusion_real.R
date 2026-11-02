@@ -58,7 +58,7 @@ p <- ggplot(tab, aes(bin)) +
   geom_text(aes(y = 0, label = paste0("n = ", n)), vjust = 1.5, size = 3, colour = "grey40") +
   labs(x = "Linked breeders who had already used a mini-catt founder species", y = "Share adopting that year",
        title = "Did breeders take up the mini-catt species after their contacts did?",
-       subtitle = sprintf("Dots: observed (95%% CI). Crosses: expected from year, activity and number of contacts alone.\nOdds ratio per log(1 + adopted contacts) %.2f (%.2f-%.2f), p %.2f; %d adoptions 1950-2024",
+       subtitle = sprintf("Dots: observed (95%% CI). Crosses: expected from year, activity and\nnumber of contacts alone. Odds ratio per log(1 + adopted contacts)\n%.2f (%.2f-%.2f), p %.2f; %d adoptions 1950-2024",
                           m$or, m$lo, m$hi, m$p, m$n_events)) +
   theme_house() + theme(plot.title.position = "plot")
 dir.create("../figures_regenerated/deeper", recursive = TRUE, showWarnings = FALSE)
