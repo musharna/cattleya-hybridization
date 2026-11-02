@@ -13,7 +13,13 @@ This directory holds derived tables only; the raw records are not distributed he
 | `cattleya_subgeneric.nwk`           |        | Subgeneric-rank topology, hand-built from Van den Berg (2014).                                                             |
 
 All four derived tables are produced by [`../analysis/derive_tables.R`](../analysis/derive_tables.R),
-which is the only script that reads the raw records.
+the only original script that reads the raw records.
+
+The later analyses ([`../docs/v2_deeper.md`](../docs/v2_deeper.md)) add more derived tables and result
+files, named by analysis (for example `founder_*`, `signal_corrected_*`, `species_pairs_*`,
+`breeder_diffusion_*`, `Y_*`), and molecular trees built from GenBank sequences (`molecular_*`). Each is
+written by the matching script in `../analysis/`, some of which read the raw records. None carries grex
+names, parentage, registrants or links.
 
 ## Why derived only
 

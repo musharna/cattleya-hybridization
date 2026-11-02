@@ -4,10 +4,14 @@
 
 > Course write-up (bioinformatics), lightly edited after submission: citations and a few numbers
 > were corrected.
+>
+> **The phylogenetic-signal result is withdrawn.** A corrected re-test, on primary-hybrid counts with a
+> control for time since description and on a molecular tree, finds no supported signal. See
+> [CORRECTIONS.md](CORRECTIONS.md#phylogenetic-signal).
 
 ## Abstract
 
-Hybridization in the genus _Cattleya_ (Orchidaceae) has been documented extensively by the Royal Horticultural Society (RHS), serving as a rich dataset to evaluate anthropogenic hybridization over time (Royal Horticultural Society, n.d.). Using data collected from orchidroots.com, rates of man-made hybridization and yearly trends can be determined to help understand how humans interact with and create new _Cattleya_ hybrids. Specifically, this work serves to investigate if hybridization has increased over time and if those hybrids have become more complex (containing an increasing number of species in their ancestry). Additionally, it also functions as a resource to examine potential phylogenetic hybridization signal. Results show that hybridization and hybrid complexity both rose from the 1850s to a peak around 1960; complexity has since plateaued, and the mix of primary and complex crosses has rebalanced. Phylogenetic signal tests on a reconstructed species-level tree revealed significant phylogenetic signal using Pagel's lambda (p-value = 2e-06), Abouheif's Cmean (p-value = 0.001), and Moran's I (p-value = 0.001), all supporting the conclusion of phylogenetic clustering of hybridization.
+Hybridization in the genus _Cattleya_ (Orchidaceae) has been documented extensively by the Royal Horticultural Society (RHS), serving as a rich dataset to evaluate anthropogenic hybridization over time (Royal Horticultural Society, n.d.). Using data collected from orchidroots.com, rates of man-made hybridization and yearly trends can be determined to help understand how humans interact with and create new _Cattleya_ hybrids. Specifically, this work serves to investigate if hybridization has increased over time and if those hybrids have become more complex (containing an increasing number of species in their ancestry). Additionally, it also functions as a resource to examine potential phylogenetic hybridization signal. Results show that hybridization and hybrid complexity both rose from the 1850s to a peak around 1960; complexity has since plateaued, and the mix of primary and complex crosses has rebalanced. Phylogenetic signal tests on a reconstructed species-level tree first appeared significant (Pagel's lambda, Abouheif's Cmean and Moran's I), but that result is withdrawn: re-tested on primary-hybrid counts, controlling for time since description, on a molecular tree, hybridization shows no supported phylogenetic signal (phylogenetic share 0.12, 95% interval 0.0005–0.52).
 
 ## Introduction
 
@@ -67,9 +71,11 @@ Another proxy used to examine hybrid complexity was the distribution of the numb
 
 Phylogenetic signal was tested using Pagel's Lambda and Blomberg's K to determine if there was a phylogenetic correlation amongst the value of hybrids in the _Cattleya_ genus. A tree at the subgeneric rank level with Grafen scaling was tested and showed no significance for Pagel's Lambda, Blomberg's K, Moran's I, or Abouheif's Cmean. The subsequent species-level tree was again tested for phylogenetic signal. Again, Blomberg's K resulted in an insignificant result, but Pagel's lambda, Moran's I, and Abouheif's Cmean were all significant. Pagel's lambda was strongly significant for the species tree with a p-value of 2.2e-6 indicating robust support for phylogenetic signal. Abouheif's Cmean and Moran's I also indicated a significant phylogenetic signal indicating similarly numbered hybrid counts tend to cluster. The phylogeny was then visualized with the log + 1 hybrid values to corroborate phylogenetic signal clustering (Figure 3).
 
+_Correction:_ this result is withdrawn. The trait counted every registered descendant, intergeneric ones included, with no control for how long a species has been available to breeders, and on this tree Pagel's lambda was significant in 200 of 200 simulated data sets with no signal. A pre-registered re-test models primary-hybrid counts as Poisson, with years since first description as exposure and a phylogenetic random effect. On a molecular tree built from GenBank ITS, matK and trnL-F for 91 species, the phylogenetic share of variation is 0.12 (95% interval 0.0005–0.52), so the claim is not supported. The same test detects strong signal in 8 of 10 simulated data sets and false signal in none of 10. Details are in [CORRECTIONS.md](CORRECTIONS.md#phylogenetic-signal).
+
 ![Figure 3](figures/fig3_hybrid_counts_on_species_tree.png)
 
-**Figure 3.** _Cattleya_ species on the subgeneric tree (left) with the number of registered hybrids descended from each species on a log scale (right); each subgeneric rank is a shaded band, with the _labiata_ group (rank _Cattleya_) in blue. High-count species cluster in the _labiata_-group region of the tree rather than being scattered across it — the visual counterpart of the significant Pagel's lambda / Moran's I / Abouheif's Cmean results in Table 1.
+**Figure 3.** _Cattleya_ species on the subgeneric tree (left) with the number of registered hybrids descended from each species on a log scale (right); each subgeneric rank is a shaded band, with the _labiata_ group (rank _Cattleya_) in blue. _Correction:_ the original caption read this as high-count species clustering in the _labiata_-group region. The counts shown are total registered descendants, which mostly track how long and how heavily a lineage has been bred, and the corrected test finds no supported clustering (see Results).
 
 ## Discussion
 
@@ -80,6 +86,8 @@ While the raw number of _Cattleya_ hybrids continues to increase yearly, whether
 ### Phylogenetic Signal
 
 The analysis of phylogenetic signal proved some intriguing results. For one, the tree composed entirely of subgeneric ranks appeared to be less effective at estimating phylogenetic signal in comparison to a species tree made of polytomies at the subgeneric rank level. This reiterates the importance of incorporating species-level structure even with polytomies.
+
+_Correction:_ the species-level result does not survive re-testing (see Results), so the contrast between the two trees is not evidence that species-level structure recovers a real signal. On that tree the lambda test rejects even when no signal is present.
 
 ### Limitations and Future Directions
 
@@ -99,6 +107,8 @@ Despite the limitations, there remains great potential to continue this analysis
 | Species level tree   | 0.184        | 0.339              | 0.305          | 2.20E−06 \*     | 0.13      | 0.001 \*        | 0.32             | 0.001 \*           |
 
 \* Statistically significant
+
+_Correction:_ the species-level row is withdrawn as evidence of phylogenetic signal; see Results and [CORRECTIONS.md](CORRECTIONS.md#phylogenetic-signal). The values are reproducible but measure total descendants with a test that cannot discriminate on this tree.
 
 ## Supplemental Figures
 

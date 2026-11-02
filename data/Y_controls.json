@@ -1,0 +1,172 @@
+{
+ "negative": {
+  "runs": [
+   {
+    "gate_auc": 0.5034530651340996,
+    "gate_pass": false,
+    "mech_pass": false,
+    "labelled": 15,
+    "false_labels": 0
+   },
+   {
+    "gate_auc": 0.5046886973180077,
+    "gate_pass": false,
+    "mech_pass": false,
+    "labelled": 15,
+    "false_labels": 1
+   },
+   {
+    "gate_auc": 0.4982183908045977,
+    "gate_pass": false,
+    "mech_pass": false,
+    "labelled": 15,
+    "false_labels": 1
+   },
+   {
+    "gate_auc": 0.5060919540229886,
+    "gate_pass": false,
+    "mech_pass": false,
+    "labelled": 15,
+    "false_labels": 2
+   },
+   {
+    "gate_auc": 0.4935392720306514,
+    "gate_pass": false,
+    "mech_pass": false,
+    "labelled": 15,
+    "false_labels": 0
+   },
+   {
+    "gate_auc": 0.5035536398467433,
+    "gate_pass": false,
+    "mech_pass": false,
+    "labelled": 15,
+    "false_labels": 0
+   },
+   {
+    "gate_auc": 0.4912595785440613,
+    "gate_pass": false,
+    "mech_pass": false,
+    "labelled": 15,
+    "false_labels": 0
+   },
+   {
+    "gate_auc": 0.48116379310344826,
+    "gate_pass": false,
+    "mech_pass": false,
+    "labelled": 15,
+    "false_labels": 0
+   },
+   {
+    "gate_auc": 0.49208333333333326,
+    "gate_pass": false,
+    "mech_pass": false,
+    "labelled": 15,
+    "false_labels": 0
+   },
+   {
+    "gate_auc": 0.4943247126436782,
+    "gate_pass": false,
+    "mech_pass": false,
+    "labelled": 15,
+    "false_labels": 0
+   },
+   {
+    "gate_auc": 0.4937452107279694,
+    "gate_pass": false,
+    "mech_pass": false,
+    "labelled": 15,
+    "false_labels": 1
+   },
+   {
+    "gate_auc": 0.5140900383141762,
+    "gate_pass": false,
+    "mech_pass": false,
+    "labelled": 15,
+    "false_labels": 0
+   },
+   {
+    "gate_auc": 0.4966714559386973,
+    "gate_pass": false,
+    "mech_pass": false,
+    "labelled": 15,
+    "false_labels": 1
+   },
+   {
+    "gate_auc": 0.5262308429118775,
+    "gate_pass": false,
+    "mech_pass": false,
+    "labelled": 15,
+    "false_labels": 1
+   },
+   {
+    "gate_auc": 0.49570881226053637,
+    "gate_pass": false,
+    "mech_pass": false,
+    "labelled": 15,
+    "false_labels": 0
+   },
+   {
+    "gate_auc": 0.4965277777777778,
+    "gate_pass": false,
+    "mech_pass": false,
+    "labelled": 15,
+    "false_labels": 0
+   },
+   {
+    "gate_auc": 0.5042097701149426,
+    "gate_pass": false,
+    "mech_pass": false,
+    "labelled": 15,
+    "false_labels": 1
+   },
+   {
+    "gate_auc": 0.5225862068965518,
+    "gate_pass": false,
+    "mech_pass": false,
+    "labelled": 15,
+    "false_labels": 4
+   },
+   {
+    "gate_auc": 0.4889272030651341,
+    "gate_pass": false,
+    "mech_pass": false,
+    "labelled": 15,
+    "false_labels": 2
+   },
+   {
+    "gate_auc": 0.5006752873563218,
+    "gate_pass": false,
+    "mech_pass": false,
+    "labelled": 15,
+    "false_labels": 1
+   }
+  ],
+  "gate_fail_all": true,
+  "mech_passes": 0,
+  "false_label_rate": 0.05,
+  "labelled_cells": 300,
+  "PASS": true
+ },
+ "positive": {
+  "gate_auc": 0.9999281609195401,
+  "mechanism": {
+   "decades_S_above_0": [
+    1980,
+    1990,
+    2000
+   ],
+   "PASS": true
+  },
+  "T_w_1990": {
+   "T": 0.2776744861709345,
+   "T_ci": [
+    0.2656173864556829,
+    0.28979931009687154
+   ],
+   "n": 215
+  },
+  "PASS": true
+ },
+ "PASS": true
+}

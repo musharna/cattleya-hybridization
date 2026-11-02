@@ -1,0 +1,1 @@
+{"planted":[6,10],"null":[0,9],"invalid":false,"underpowered":true,"real":{"h2_shift":[0.777598,0.007775,0.999591,1.001933],"b_late":[0.473737,0.075152,0.901562],"founders":[0.099655,0.115797,0.045572,0.017896],"mech":4,"verdict":"not supported (lower bound < 0.05, underpowered)"}}

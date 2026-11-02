@@ -1,0 +1,75 @@
+{
+ "n_universe_species": 130,
+ "n_nothospecies_in_universe": 95,
+ "n_crossable_pairs": 1037,
+ "readout1_notho_with_independent_primary": 0.4105263157894737,
+ "readout1_pass": false,
+ "readout2_notho_allopatric": 0.021052631578947368,
+ "readout2_pass": true,
+ "readout2_flag": false,
+ "readout3_crossable_sympatric": 0.5448408871745419,
+ "readout3_pass": true,
+ "artificial_allopatric": 0.5555555555555556,
+ "n_artificial_in_universe": 18,
+ "GO": false,
+ "readout1_breakdown": {
+  "independent": 39,
+  "remake_under_notho_epithet": 17,
+  "species_style_only": 36,
+  "none": 3
+ },
+ "fisher": {
+  "pooled": {
+   "table": [
+    [
+     39,
+     56
+    ],
+    [
+     998,
+     7292
+    ]
+   ],
+   "odds_ratio": 5.088534211279702,
+   "p": 1.4410976484700968e-12
+  },
+  "same_rank": {
+   "table": [
+    [
+     26,
+     26
+    ],
+    [
+     215,
+     710
+    ]
+   ],
+   "odds_ratio": 3.302325581395349,
+   "p": 4.8022434059869165e-05
+  },
+  "different_rank": {
+   "table": [
+    [
+     13,
+     27
+    ],
+    [
+     783,
+     3150
+    ]
+   ],
+   "odds_ratio": 1.936994465730098,
+   "p": 0.07052703740699076
+  }
+ },
+ "dropped": {
+  "nothospecies_formula": 4,
+  "artificial_formula": 9,
+  "primaries_unmapped": 5,
+  "register_species_unmapped": 2,
+  "universe_without_range": 0
+ },
+ "n_nothospecies_accepted_mapped": 100,
+ "n_primaries_mapped": 1250,
+ "n_ranked_species": 100
+}

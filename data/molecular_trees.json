@@ -1,0 +1,55 @@
+{
+  "combined": {
+    "tips": 91,
+    "root_step": 2,
+    "dropped_outgroup_tips": "Brassavola_acaulis",
+    "ranks_tested": 7,
+    "ranks_monophyletic": 5,
+    "ranks": {
+      "Cattleya": false,
+      "Cattleyodes": false,
+      "Hadrolaelia": true,
+      "Intermediae": true,
+      "Lawrenceanae": true,
+      "Parviflorae": true,
+      "Sophronitis": true
+    }
+  },
+  "ITS": {
+    "tips": 91,
+    "root_step": 3,
+    "dropped_outgroup_tips": [],
+    "ranks_tested": 7,
+    "ranks_monophyletic": 3,
+    "ranks": {
+      "Cattleya": false,
+      "Cattleyodes": false,
+      "Hadrolaelia": true,
+      "Intermediae": true,
+      "Lawrenceanae": true,
+      "Parviflorae": false,
+      "Sophronitis": false
+    }
+  },
+  "plastid": {
+    "tips": 51,
+    "root_step": 1,
+    "dropped_outgroup_tips": [],
+    "ranks_tested": 6,
+    "ranks_monophyletic": 2,
+    "ranks": {
+      "Cattleya": false,
+      "Hadrolaelia": true,
+      "Intermediae": false,
+      "Lawrenceanae": true,
+      "Parviflorae": false,
+      "Sophronitis": false
+    }
+  },
+  "boot20_tips": 91,
+  "boot20_root_steps": {
+    "2": 10,
+    "3": 10
+  },
+  "grafted": ["Cattleya_rex", "Cattleya_perrinii", "Cattleya_acuensis", "Cattleya_pygmaea", "Cattleya_munchowiana", "Cattleya_alagoensis", "Cattleya_dichroma", "Cattleya_presidentensis", "Cattleya_alvarenguensis"]
+}
